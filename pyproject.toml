@@ -34,7 +34,7 @@ Issues = "https://github.com/VirajAgarwal1/cb-streamlit-connector/issues"
 Source = "https://github.com/VirajAgarwal1/cb-streamlit-connector"
 
 [tool.hatch.version]
-path = "src/cb_streamlit_connector/__about__.py"
+path = "cb-streamlit-connector/cb_streamlit_connector/__about__.py"
 
 [tool.hatch.envs.types]
 extra-dependencies = [
