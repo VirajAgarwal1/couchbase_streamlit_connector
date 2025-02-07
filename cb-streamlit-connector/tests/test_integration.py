@@ -13,7 +13,7 @@ from unittest.mock import MagicMock, patch
 # TODO: Add the test_query_consistency        
 
 @pytest.fixture
-@patch('couchbase.cluster.Cluster')
+@patch('cb_streamlit_connector.connector.Cluster') # cb_streamlit_connector.connector.Cluster
 def connection(mock_Cluster):
     
     mock_cluster_object = MagicMock()
@@ -156,7 +156,7 @@ def test_delete(connection):
     # connection.collection.remove.assert_called_once()
     
 def test_query(connection):
-    """Test the destination airports from an airline"""
+    """Test the destination airports from an airline""
     # query = """
     #     SELECT * FROM `travel-sample`.`inventory`.`airline`
     #     WHERE type = "airline"
