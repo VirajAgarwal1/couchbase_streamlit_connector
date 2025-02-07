@@ -81,6 +81,7 @@ jobs:
       - name: Install Hatch
         run: |
           pip install hatch
+          hatch build
       # - name: Build and Publish Package
       #   env:
       #     HATCH_PYPI_TOKEN: ${{ secrets.HATCH_PYPI_TOKEN }}
