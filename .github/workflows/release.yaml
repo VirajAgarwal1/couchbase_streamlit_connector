@@ -79,13 +79,9 @@ jobs:
         with:
           python-version: "3.11"  # Use the Python version your project supports
       - name: Install Hatch
-        run: |
-          pip install hatch
-          hatch build
-      # - name: Build and Publish Package
-      #   env:
-      #     HATCH_PYPI_TOKEN: ${{ secrets.HATCH_PYPI_TOKEN }}
-      #   run: hatch publish
+        run: pip install hatch
+      - name: Hatch build
+        run: hatch build
       - name: Publish release distributions to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
         with:

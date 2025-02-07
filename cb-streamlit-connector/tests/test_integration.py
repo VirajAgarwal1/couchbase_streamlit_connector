@@ -21,21 +21,9 @@ def connection(mock_Cluster):
     mock_cluster_object.bucket = MagicMock(return_value=MagicMock())
     mock_cluster_object.scope = MagicMock(return_value=MagicMock())
     mock_cluster_object.collection = MagicMock(return_value=MagicMock())
-    mock_Cluster.return_value = mock_cluster_object
-    
-    connection = st.connection(
-        "couchbase", 
-        type=CouchbaseConnector, 
-        CONNSTR= "CONNSTR",
-        USERNAME= "USERNAME",
-        PASSWORD= "PASSWORD",
-        BUCKET_NAME= "BUCKET_NAME",
-        SCOPE_NAME= "SCOPE_NAME",
-        COLLECTION_NAME= "COLLECTION_NAME"
-    )
     
     # for test_create
-    mock_cluster_object.collection.insert = MagicMock(return_value="mock_insert_result")
+    mock_cluster_object.collection.insert.return_value = "mock_insert_result"
     
     # for test_read
     mock_get_result = MagicMock()
@@ -50,6 +38,19 @@ def connection(mock_Cluster):
     
     # for test_query
     mock_cluster_object.query = MagicMock(return_value="mock_query_result")
+    
+   mock_Cluster.return_value = mock_cluster_object
+    
+    connection = st.connection(
+        "couchbase", 
+        type=CouchbaseConnector, 
+        CONNSTR= "CONNSTR",
+        USERNAME= "USERNAME",
+        PASSWORD= "PASSWORD",
+        BUCKET_NAME= "BUCKET_NAME",
+        SCOPE_NAME= "SCOPE_NAME",
+        COLLECTION_NAME= "COLLECTION_NAME"
+    )
     
     return connection
     
