@@ -1,0 +1,63 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "cb-streamlit-connector"
+dynamic = ["version"]
+description = 'Connector for Couchbase on Streamlit'
+readme = "README.md"
+requires-python = ">=3.8"
+license = { file = "LICENSE" }
+keywords = ["couchbase", "streamlit", "connector", "couchbase-connector", "streamlit-connector", "couchbase-streamlit-connector"]
+authors = [
+  { name = "Viraj Agarwal", email = "virajagarwal15@gmail.com" },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = [
+  "couchbase", "streamlit"
+]
+
+[project.urls]
+Documentation = "https://github.com/VirajAgarwal1/cb-streamlit-connector#readme"
+Issues = "https://github.com/VirajAgarwal1/cb-streamlit-connector/issues"
+Source = "https://github.com/VirajAgarwal1/cb-streamlit-connector"
+
+[tool.hatch.version]
+path = "src/cb_streamlit_connector/__about__.py"
+
+[tool.hatch.envs.types]
+extra-dependencies = [
+  "mypy>=1.0.0",
+]
+[tool.hatch.envs.types.scripts]
+check = "mypy --install-types --non-interactive {args:src/cb_streamlit_connector tests}"
+
+[tool.coverage.run]
+source_pkgs = ["cb_streamlit_connector", "tests"]
+branch = true
+parallel = true
+omit = [
+  "src/cb_streamlit_connector/__about__.py",
+]
+
+[tool.coverage.paths]
+cb_streamlit_connector = ["src/cb_streamlit_connector", "*/cb-streamlit-connector/src/cb_streamlit_connector"]
+tests = ["tests", "*/cb-streamlit-connector/tests"]
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]

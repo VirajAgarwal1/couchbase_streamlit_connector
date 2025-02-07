@@ -1,0 +1,84 @@
+# name: Release Package from Github to pypi
+
+# on:
+#   release:
+#     types: [published]  # Trigger when a new release is published
+
+# jobs:
+#   release:
+#     name: Build and Publish
+#     runs-on: ubuntu-latest
+#     steps:  
+#       - name: Checkout code
+#         uses: actions/checkout@v4
+
+#       - name: Set up Python
+#         uses: actions/setup-python@v4
+#         with:
+#           python-version: "3.13.1"
+
+#       - name: Install dependencies
+#         run: |
+#           python -m pip install --upgrade pip
+#           pip install build pytest
+#           pip install -r requirements.txt
+
+#       - name: Run unit tests
+#         run: |
+#           python3 -m pytest cb_streamlit_connector/tests/test_unit.py
+#         env:
+#           PYTHONPATH: .
+#           CONNSTR: ${{ secrets.COUCHBASE_CONNSTR }}
+#           USERNAME: ${{ secrets.COUCHBASE_USERNAME }}
+#           PASSWORD: ${{ secrets.COUCHBASE_PASSWORD }}
+#           BUCKET_NAME: ${{ secrets.COUCHBASE_BUCKET }}
+#           SCOPE_NAME: ${{ secrets.COUCHBASE_SCOPE }}
+#           COLLECTION_NAME: ${{ secrets.COUCHBASE_COLLECTION }}
+
+#       - name: Run Integration tests
+#         run: |
+#           python3 -m pytest cb_streamlit_connector/tests/test_integration.py
+#         env:
+#           PYTHONPATH: .
+#           CONNSTR: ${{ secrets.COUCHBASE_CONNSTR }}
+#           USERNAME: ${{ secrets.COUCHBASE_USERNAME }}
+#           PASSWORD: ${{ secrets.COUCHBASE_PASSWORD }}
+#           BUCKET_NAME: ${{ secrets.COUCHBASE_BUCKET }}
+#           SCOPE_NAME: ${{ secrets.COUCHBASE_SCOPE }}
+#           COLLECTION_NAME: ${{ secrets.COUCHBASE_COLLECTION }}
+      
+#       - name: Build package
+#         run: python -m build  # Creates a dist/ folder with .tar.gz and .whl files
+
+#       - name: Publish to PyPi
+#         if: success()  # Ensures the step runs only if previous steps succeed
+#         env:
+#           TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
+#           TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+#         run: |
+#           pip install twine
+#           ls
+#           twine upload dist/*
+
+
+name: Publish Package to PyPI
+on:
+  push:
+    branches:
+      - main
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"  # Use the Python version your project supports
+      - name: Install Hatch
+        run: pip install hatch
+      - name: Build and Publish Package
+        env:
+          HATCH_PYPI_TOKEN: ${{ secrets.PYPI_API_TOKEN }}
+        run: hatch publish
