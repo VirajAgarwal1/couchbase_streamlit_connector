@@ -107,8 +107,6 @@ class CouchbaseConnector(BaseConnection[Cluster]):
             self.bucket = self.cluster.bucket(bucket_name)
             self.scope = self.bucket.scope(scope_name)
             self.collection = self.scope.collection(collection_name)
-
-            # print(f"✅ Collection set: {bucket_name}.{scope_name}.{collection_name}")
             
         except CouchbaseException as e:
             raise Exception(f"ERROR: Failed to set collection {bucket_name}.{scope_name}.{collection_name}\n{e}")
@@ -241,7 +239,6 @@ class CouchbaseConnector(BaseConnection[Cluster]):
     def query(self, q, opts=QueryOptions(metrics=True, scan_consistency=QueryScanConsistency.REQUEST_PLUS)):
         try:
             result = self.cluster.query(q, QueryOptions(metrics=True))
-            # print(result.rows())
             return result
         except CouchbaseException as ex:
             raise Exception(f"ERROR: Couchbase encountered an error")
