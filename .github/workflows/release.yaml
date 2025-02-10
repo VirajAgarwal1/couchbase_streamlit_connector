@@ -19,7 +19,9 @@ jobs:
           python-version: "3.11"
 
       - name: Unit Tests
-        run: python3 -m pytest cb-streamlit-connector/tests/test_unit.py
+        run: |
+          pip3 install pytest
+          python3 -m pytest cb-streamlit-connector/tests/test_unit.py
 
       - name: Install Hatch
         run: pip install hatch
