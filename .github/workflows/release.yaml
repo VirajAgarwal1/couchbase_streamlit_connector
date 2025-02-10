@@ -14,7 +14,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: "3.11"  # Use the Python version your project supports
+          python-version: "3.11"
       - name: Install Hatch
         run: pip install hatch
       - name: Hatch build
