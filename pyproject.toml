@@ -39,6 +39,7 @@ path = "cb-streamlit-connector/cb_streamlit_connector/__about__.py"
 [tool.hatch.envs.types]
 extra-dependencies = [
   "mypy>=1.0.0",
+  "python-dotenv>=1.0.0"
 ]
 [tool.hatch.envs.types.scripts]
 check = "mypy --install-types --non-interactive {args:src/cb_streamlit_connector tests}"

@@ -5,3 +5,4 @@ my_folder/
 **/.venv/
 *.log
 *.git
+*secrets*
