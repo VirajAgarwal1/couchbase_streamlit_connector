@@ -22,7 +22,7 @@ jobs:
         run: pip3 install pytest streamlit couchbase
 
       - name: Unit Tests
-        run: python3 -m pytest cb-streamlit-connector/tests/test_integration.py
+        run: python3 -m pytest cb-streamlit-connector/tests/test_unit.py
 
       - name: Install Hatch
         run: pip install hatch
