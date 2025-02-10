@@ -42,8 +42,6 @@ jobs:
           name: ${{ github.event.commits.message }}
           draft: false
           prerelease: false
-          body_path: /tmp/changelog.md
-          files: dist/*
 
       - name: Publish release distributions to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
