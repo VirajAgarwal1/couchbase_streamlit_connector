@@ -20,7 +20,7 @@ jobs:
 
       - name: Unit Tests
         run: |
-          pip3 install pytest
+          pip3 install pytest streamlit couchbase
           python3 -m pytest cb-streamlit-connector/tests/test_unit.py
 
       - name: Install Hatch
