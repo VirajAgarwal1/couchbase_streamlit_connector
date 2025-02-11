@@ -1,4 +1,4 @@
-from cb_streamlit_connector.connector import CouchbaseConnector
+from couchbase_streamlit_connector.connector import CouchbaseConnector
 import streamlit as st
 import pytest
 from unittest.mock import MagicMock, patch
