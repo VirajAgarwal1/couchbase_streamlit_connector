@@ -34,7 +34,7 @@ Issues = "https://github.com/VirajAgarwal1/couchbase_streamlit_connector/issues"
 Source = "https://github.com/VirajAgarwal1/couchbase_streamlit_connector"
 
 [tool.hatch.version]
-path = "couchbase_streamlit_connector/couchbase_streamlit_connector/__about__.py"
+path = "src/couchbase_streamlit_connector/__about__.py"
 
 [tool.hatch.envs.types]
 extra-dependencies = [
