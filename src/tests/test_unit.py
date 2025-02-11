@@ -4,7 +4,7 @@ import pytest
 from unittest.mock import MagicMock, patch
      
 @pytest.fixture
-@patch('cb_streamlit_connector.connector.Cluster') # cb_streamlit_connector.connector.Cluster
+@patch('couchbase_streamlit_connector.connector.Cluster')
 def connection(mock_Cluster):
     
     mock_collection_object = MagicMock()    
