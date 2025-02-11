@@ -10,6 +10,7 @@ st.write("The goal of this project is to help developers work easily with Couchb
             "allowing them to fetch, insert, update, and delete data with minimal effort.")
 st.write("It eliminates the inconvenience of switching between Streamlit and the Couchbase Python SDK ecosystems, "
             "providing a more streamlined development experience.")
+st.write("For a working demo please checkou `src/Demo.py` file.")
 
 st.header("2. Prerequisites")
 st.subheader("System Requirements")
@@ -41,7 +42,7 @@ COLLECTION_NAME = "<COLLECTION_NAME>"
 st.write("Then, initialize the connection in your Streamlit app:")
 st.code("""
 import streamlit as st
-from cb_streamlit_connector.connector import CouchbaseConnector
+from couchbase_streamlit_connector.connector import CouchbaseConnector
 
 connection = st.connection(
     "couchbase",
@@ -54,7 +55,7 @@ st.write("**Option 2: Passing Credentials Directly (Alternative)**")
 st.write("You can also pass the connection details directly as keyword arguments:")
 st.code("""
 import streamlit as st
-from cb_streamlit_connector.connector import CouchbaseConnector
+from couchbase_streamlit_connector.connector import CouchbaseConnector
 
 st.connection(
     "couchbase", 

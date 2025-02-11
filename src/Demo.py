@@ -2,7 +2,7 @@ import streamlit as st
 from couchbase_streamlit_connector.connector import CouchbaseConnector
 
 # Streamlit UI
-st.title("Couchbase CRUD App")
+st.title("Couchbase Streamlit App")
 
 # User input for credentials
 st.sidebar.header("Enter Couchbase Credentials")
@@ -83,6 +83,9 @@ if "connection" in st.session_state:
     if st.button("Execute Query"):
         try:
             result = connection.query(query)
-            st.json(result)
+            data = []
+            for row in result.rows():
+                data.append(row)
+            st.write(data)
         except Exception as e:
             st.error(f"Error: {e}")

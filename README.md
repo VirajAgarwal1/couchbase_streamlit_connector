@@ -3,6 +3,8 @@
 ## 1. Introduction
 This project provides a seamless integration between Streamlit and Couchbase, allowing developers to interact with Couchbase databases effortlessly. It enables users to fetch, insert, update, and delete data within Streamlit applications without needing to switch between different SDKs, enhancing the overall development experience.
 
+For a working demo please checkou `src/Demo.py` file.
+
 ## 2. Prerequisites
 ### System Requirements
 - Couchbase Capella account ([Docs](https://docs.couchbase.com/cloud/get-started/intro.html))
@@ -38,7 +40,7 @@ Then, initialize the connection in your Streamlit application:
 
 ```python
 import streamlit as st
-from cb_streamlit_connector.connector import CouchbaseConnector
+from couchbase_streamlit_connector.connector import CouchbaseConnector
 
 connection = st.connection(
     "couchbase",
@@ -52,7 +54,7 @@ Alternatively, you can pass the connection details as keyword arguments:
 
 ```python
 import streamlit as st
-from cb_streamlit_connector.connector import CouchbaseConnector
+from couchbase_streamlit_connector.connector import CouchbaseConnector
 
 connection = st.connection(
     "couchbase",
