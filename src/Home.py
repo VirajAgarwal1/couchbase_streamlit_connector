@@ -10,7 +10,12 @@ st.write("The goal of this project is to help developers work easily with Couchb
             "allowing them to fetch, insert, update, and delete data with minimal effort.")
 st.write("It eliminates the inconvenience of switching between Streamlit and the Couchbase Python SDK ecosystems, "
             "providing a more streamlined development experience.")
-st.write("For a working demo please checkou `src/Demo.py` file.")
+st.write("For a working demo please checkout `src/Demo.py` file. You can run it by the command")
+st.code("""
+git clone https://github.com/VirajAgarwal1/couchbase_streamlit_connector.git
+pip install -r requirements.txt
+streamlit run src/Demo.py
+""", language="bash")
 
 st.header("2. Prerequisites")
 st.subheader("System Requirements")

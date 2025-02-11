@@ -3,7 +3,12 @@
 ## 1. Introduction
 This project provides a seamless integration between Streamlit and Couchbase, allowing developers to interact with Couchbase databases effortlessly. It enables users to fetch, insert, update, and delete data within Streamlit applications without needing to switch between different SDKs, enhancing the overall development experience.
 
-For a working demo please checkou `src/Demo.py` file.
+For a working demo please checkou `src/Demo.py` file. You can run it by the command
+```bash
+git clone https://github.com/VirajAgarwal1/couchbase_streamlit_connector.git
+pip install -r requirements.txt
+streamlit run src/Demo.py
+```
 
 ## 2. Prerequisites
 ### System Requirements
