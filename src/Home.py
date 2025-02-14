@@ -15,6 +15,7 @@ st.code("""
 git clone https://github.com/VirajAgarwal1/couchbase_streamlit_connector.git
 cd ./couchbase_streamlit_connector
 pip install -r requirements.txt
+pip install plotly geopy numpy
 streamlit run src/Demo.py
 """, language="bash")
 

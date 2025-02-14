@@ -8,6 +8,7 @@ For a working demo please checkou `src/Demo.py` file. You can run it by the comm
 git clone https://github.com/VirajAgarwal1/couchbase_streamlit_connector.git
 cd ./couchbase_streamlit_connector
 pip install -r requirements.txt
+pip install plotly geopy numpy
 streamlit run src/Demo.py
 ```
 

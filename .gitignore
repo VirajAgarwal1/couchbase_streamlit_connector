@@ -6,3 +6,4 @@ my_folder/
 *.log
 *.git
 *secrets*
+.DS_Store
