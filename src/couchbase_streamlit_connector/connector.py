@@ -10,6 +10,7 @@ from couchbase.logic.n1ql import QueryScanConsistency
 from couchbase.durability import Durability, ServerDurability
 from couchbase.exceptions import CouchbaseException, AuthenticationException, TimeoutException
 import pandas as pd
+import numpy as np
 
 class CouchbaseConnector(BaseConnection[Cluster]):    
     """
